@@ -16,6 +16,7 @@ module.exports.store = function(req, res){
     req.assert('nome', 'Esse campo não pode ser vazio').notEmpty();
     req.assert('nome', 'O nome deve ter no mínimo '+minCaracter +' e no máximo '+maxCaracter+' caracteres').len(minCaracter,maxCaracter);
     req.assert('email', 'Esse campo não pode ser vazio').notEmpty();
+    req.assert('email', 'Preencha um E-mail válido').isEmail();
 
     var validacaoErros = req.validationErrors();
 
