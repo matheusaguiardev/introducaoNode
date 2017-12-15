@@ -3,6 +3,7 @@ module.exports = function(){
     
     var express = require('express'); // importar o express
     var bodyParser = require('body-parser');
+    var expressValidator = require('express-validator');
 
     var app = express(); // executar
     app.set('view engine', 'ejs'); // importar ejs
@@ -11,6 +12,8 @@ module.exports = function(){
     app.use(bodyParser.json()); // suporte a json encoded bodies
     app.use(bodyParser.urlencoded({extended: true})); // suporte encoded bodies
     
+    app.use(expressValidator()); // adicionando ao express o express-validator
+
     var routes = require('../app/routes/web'); 
     
     routes(app); // carregar as rotas para o express    

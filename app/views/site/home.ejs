@@ -17,9 +17,18 @@
     <br>
 
 <h1>Adicionar um novo Cliente</h1>
+
+<% if(erros){ %>
+    <ul>
+        <% for(var erro in erros) {%>
+        <li><%= erros[erro].msg %>  </li>
+        <% } %>
+    </ul>
+<% } %>
+
     <form action="/" method="post">
-        <input type="text" name="nome" placeholder="Nome"> <br>
-        <input type="email" name="email" placeholder="E-mail">
+        <input type="text" name="nome" placeholder="Nome" value="<%= dados.nome %>"> <br>
+        <input type="email" name="email" placeholder="E-mail" value="<%= dados.email %>">
         <button>Adicionar cliente</button>
     </form>
 
